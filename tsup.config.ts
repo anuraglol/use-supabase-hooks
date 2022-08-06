@@ -1,4 +1,4 @@
-import { Options } from "tsup"
+import { Options } from "tsup";
 
 export const tsup: Options = {
   target: "esnext",

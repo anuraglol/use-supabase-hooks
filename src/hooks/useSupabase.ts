@@ -9,4 +9,4 @@ const useSupabase = (SUPABASE_URL: string, SUPABASE_PK: string) => {
   return supabase;
 };
 
-export { useSupabase }
+export { useSupabase };

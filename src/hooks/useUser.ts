@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const useUser = (client: SupabaseClient) => {
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [loading, setIsLoading] = useState<boolean>(true);
 
   client.auth.onAuthStateChange((event, sesssion) => {
     const user = client.auth.user();
@@ -12,7 +12,7 @@ const useUser = (client: SupabaseClient) => {
     setIsLoading(false);
   });
 
-  return { user, isLoading };
+  return { user, loading };
 };
 
-export { useUser }
+export { useUser };
