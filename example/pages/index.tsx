@@ -10,6 +10,7 @@ const Home: NextPage = () => {
   );
 
   const { user, loading } = useUser(client);
+  console.log(user);
 
   return (
     <Box

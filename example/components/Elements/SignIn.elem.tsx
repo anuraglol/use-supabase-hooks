@@ -1,10 +1,21 @@
 import { Button, Flex, Input, Text } from "@chakra-ui/react";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiTwitter } from "react-icons/fi";
 import { TbBrandGoogle } from "react-icons/tb";
+import { useAuth, useSupabase } from "use-supabase-auth";
+import { toast } from "react-hot-toast";
 
 const SignIn: FC = () => {
+  const [email, setEmail] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const supabase = useSupabase(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_PK!
+  );
+
+  const { signIn } = useAuth(supabase);
+
   return (
     <Flex
       bgColor="#07070899"
@@ -17,33 +28,58 @@ const SignIn: FC = () => {
       gap="4"
       alignItems="center"
     >
-      <Input
-        bg="#040108"
-        h="12"
-        w="lg"
-        rounded="xl"
-        border="2px solid #fff"
-        outline="none"
-        placeholder="eddiemunson@st.com"
-        _placeholder={{ fontSize: "lg" }}
-      />
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          setIsLoading(true);
+          const { error } = await signIn({ email });
+          console.log(error);
 
-      <Button
-        bgColor="#A855F7"
-        _hover={{}}
-        _active={{}}
-        _focus={{}}
-        textColor="white"
-        fontWeight="500"
-        w="40"
-        display="flex"
-        alignItems="center"
-        gap="2"
-        fontSize="17px"
+          error
+            ? toast.error("Error signing in")
+            : toast.success("Check your email for sign in link");
+          setIsLoading(false);
+        }}
       >
-        <MdOutlineEmail size={22} />
-        Continue
-      </Button>
+        <Flex direction="column" gap="4" alignItems="center">
+          <Input
+            bg="#040108"
+            h="12"
+            w="md"
+            rounded="xl"
+            textColor="white"
+            fontSize="lg"
+            border="2px solid #fff"
+            outline="none"
+            placeholder="eddiemunson@st.com"
+            _placeholder={{ fontSize: "lg" }}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            isRequired
+          />
+
+          <Button
+            bgColor="#A855F7"
+            _hover={{
+              boxShadow: "2px 3px 3px rgba(124, 46, 224, 0.976561)",
+            }}
+            _active={{}}
+            _focus={{}}
+            textColor="white"
+            fontWeight="500"
+            w="40"
+            display="flex"
+            alignItems="center"
+            gap="2"
+            fontSize="17px"
+            type="submit"
+            isLoading={isLoading}
+          >
+            <MdOutlineEmail size={22} />
+            Continue
+          </Button>
+        </Flex>
+      </form>
 
       <Text fontSize="2xl" fontWeight="700" textColor="white">
         OR
@@ -51,7 +87,6 @@ const SignIn: FC = () => {
 
       <Button
         bgColor="#A855F7"
-        _hover={{}}
         _active={{}}
         _focus={{}}
         textColor="white"
@@ -61,6 +96,9 @@ const SignIn: FC = () => {
         alignItems="center"
         gap="2"
         fontSize="17px"
+        _hover={{
+          boxShadow: "2px 3px 3px rgba(124, 46, 224, 0.976561)",
+        }}
       >
         <TbBrandGoogle size={23} />
         Continue with Google
@@ -68,7 +106,9 @@ const SignIn: FC = () => {
 
       <Button
         bgColor="#A855F7"
-        _hover={{}}
+        _hover={{
+          boxShadow: "2px 3px 3px rgba(124, 46, 224, 0.976561)",
+        }}
         _active={{}}
         _focus={{}}
         textColor="white"
