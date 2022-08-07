@@ -1,25 +1,28 @@
-import { useAuthProps } from "../@types/useAuth.types";
+import type {
+  signInProps,
+  signUpProps,
+  useAuthProps,
+} from "../@types/useAuth.types";
 
-const useAuth = ({
-  client,
-  provider,
-  redirectTo,
-  email,
-  password,
-}: useAuthProps) => {
-  const signUp = async () => {
+const useAuth = ({ client }: useAuthProps) => {
+  const signUp = async ({ email, password, redirectTo }: signUpProps) => {
     const { user, session, error } = await client.auth.signUp(
       {
         email: email,
         password: password,
       },
-      { redirectTo: redirectTo }
+      { redirectTo: redirectTo && redirectTo }
     );
 
     return { user, session, error };
   };
 
-  const signIn = async () => {
+  const signIn = async ({
+    email,
+    password,
+    provider,
+    redirectTo,
+  }: signInProps) => {
     const { user, session, error } = await client.auth.signIn(
       email
         ? { email: email }
