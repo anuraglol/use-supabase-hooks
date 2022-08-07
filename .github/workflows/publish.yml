@@ -18,7 +18,7 @@ jobs:
           node-version: 14
 
       - name: Sync Readmes
-        run: node scripts/syncReadme.js
+        run: node scripts/syncReadme.cjs
 
       - name: Install dependencies
         run: cd package && npm install
