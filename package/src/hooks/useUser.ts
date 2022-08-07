@@ -5,7 +5,7 @@ const useUser = (client: SupabaseClient) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setIsLoading] = useState<boolean>(true);
 
-  client.auth.onAuthStateChange((event, sesssion) => {
+  client.auth.onAuthStateChange(() => {
     const user = client.auth.user();
 
     setUser(user);
