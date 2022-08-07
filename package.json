@@ -1,26 +1,8 @@
 {
-  "name": "use-supabase-auth",
-  "version": "1.0.2",
-  "repository": "https://github.com/kr-anurag/use-supabase-auth.git",
-  "author": "Anurag <kr.anurag24@gmail.com>",
-  "license": "MIT",
-  "type": "module",
   "scripts": {
-    "build": "tsup src/* --outDir dist --dts",
-    "format": "prettier --write ."
-  },
-  "types": "dist/index.d.ts",
-  "peerDependencies": {
-    "react": "^18.2.0"
+    "format": "yarn prettier --write ."
   },
   "devDependencies": {
-    "@types/node": "^18.6.4",
-    "@types/react": "^18.0.15",
-    "prettier": "^2.7.1",
-    "tsup": "^6.2.1",
-    "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "@supabase/supabase-js": "^1.35.5"
+    "prettier": "^2.7.1"
   }
 }
