@@ -5,10 +5,15 @@ const useUser = (client: SupabaseClient) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setIsLoading] = useState<boolean>(true);
 
-  client.auth.onAuthStateChange(() => {
+  client.auth.onAuthStateChange((event) => {
     const user = client.auth.user();
 
-    setUser(user);
+    event === "SIGNED_IN"
+      ? setUser(user)
+      : event === "SIGNED_OUT"
+      ? setUser(null)
+      : null;
+
     setIsLoading(false);
   });
 
