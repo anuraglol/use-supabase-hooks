@@ -99,6 +99,9 @@ const SignIn: FC = () => {
         _hover={{
           boxShadow: "2px 3px 3px rgba(124, 46, 224, 0.976561)",
         }}
+        onClick={async () => {
+          const { error } = await signIn({ provider: "google" });
+        }}
       >
         <TbBrandGoogle size={23} />
         Continue with Google
@@ -118,6 +121,9 @@ const SignIn: FC = () => {
         alignItems="center"
         gap="2"
         fontSize="17px"
+        onClick={async () => {
+          const { error } = await signIn({ provider: "twitter" });
+        }}
       >
         <FiTwitter size={22} />
         Continue with Twitter
