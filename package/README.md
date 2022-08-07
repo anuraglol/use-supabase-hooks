@@ -1,1 +1,1 @@
-# use-supabase-auth
+# use-supabase-hooks
