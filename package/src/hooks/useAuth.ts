@@ -1,10 +1,7 @@
-import type {
-  signInProps,
-  signUpProps,
-  useAuthProps,
-} from "../@types/useAuth.types";
+import { SupabaseClient } from "@supabase/supabase-js";
+import type { signInProps, signUpProps } from "../@types/useAuth.types";
 
-const useAuth = ({ client }: useAuthProps) => {
+const useAuth = (client: SupabaseClient) => {
   const signUp = async ({ email, password, redirectTo }: signUpProps) => {
     const { user, session, error } = await client.auth.signUp(
       {

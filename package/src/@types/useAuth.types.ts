@@ -1,8 +1,4 @@
-import { Provider, SupabaseClient } from "@supabase/supabase-js";
-
-interface useAuthProps {
-  client: SupabaseClient;
-}
+import type { Provider } from "@supabase/supabase-js";
 
 interface signUpProps {
   email: string;
@@ -17,4 +13,4 @@ interface signInProps {
   redirectTo?: string;
 }
 
-export type { useAuthProps, signUpProps, signInProps };
+export type { signUpProps, signInProps };

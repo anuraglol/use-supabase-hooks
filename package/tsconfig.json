@@ -12,6 +12,11 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "lib": ["es2021"],
+    "rootDir": "./",
+    "paths": {
+      "@": ["./src"],
+      "@/*": ["./src/*"]
+    },
     "skipLibCheck": true,
     "declaration": true,
     "esModuleInterop": true
