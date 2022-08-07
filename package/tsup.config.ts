@@ -5,6 +5,5 @@ export const tsup: Options = {
   dts: true,
   keepNames: true,
   minify: true,
-  sourcemap: true,
   format: ["cjs"],
 };

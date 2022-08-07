@@ -1,15 +1,5 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "lib": ["es2021"],
     "rootDir": "./",
@@ -18,7 +8,6 @@
       "@/*": ["./src/*"]
     },
     "skipLibCheck": true,
-    "declaration": true,
     "esModuleInterop": true
   }
 }

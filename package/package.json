@@ -7,7 +7,7 @@
   "main": "dist/index.cjs",
   "type": "module",
   "scripts": {
-    "build": "tsup src/* --outDir dist --dts",
+    "build": "tsup src/* --outDir dist",
     "format": "prettier --write ."
   },
   "types": "dist/index.d.ts",
