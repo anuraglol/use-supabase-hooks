@@ -3012,10 +3012,10 @@ use-sidecar@^1.1.2:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"
 
-use-supabase-auth@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/use-supabase-auth/-/use-supabase-auth-1.0.5.tgz#b2fc91ca805a964dc87ae09f9014eb797e9af023"
-  integrity sha512-+QNtFr/3lAEN/Zz1H56ZKKxnKHPtzPjQilNoBsJJAn5cIFxVvjCxHm17ECbOg63s04+opC/876jkRSA07MMEDA==
+use-supabase-auth@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/use-supabase-auth/-/use-supabase-auth-1.0.9.tgz#cf487c60d7d0381b51fbabac9a1b50e6a7b61ad6"
+  integrity sha512-tdLzHcyJqyd0Pb8JoSk0Tb2YbahyZ0aJI/ongmc5QFHMMeNDgVktA4CyrvFam+/PDLkTJQPl63UO2f4kL5g2hw==
   dependencies:
     "@supabase/supabase-js" "^1.35.5"
 

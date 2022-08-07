@@ -1,8 +1,6 @@
 import { Box } from "@chakra-ui/react";
-import { SupabaseClient } from "@supabase/supabase-js";
 import type { NextPage } from "next";
-import { useUser, useReadData, useSupabase } from "use-supabase-auth";
-import { supabase } from "../utils/supabase";
+import { useUser, useSelectData, useSupabase } from "use-supabase-auth";
 
 const Home: NextPage = () => {
   const client = useSupabase(
