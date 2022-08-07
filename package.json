@@ -1,13 +1,15 @@
 {
   "name": "use-supabase-auth",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": "https://github.com/kr-anurag/use-supabase-auth.git",
   "author": "Anurag <kr.anurag24@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "build": "tsup src/* --outDir dist",
+    "build": "tsup src/* --outDir dist --dts",
     "format": "prettier --write ."
   },
+  "types": "dist/index.d.ts",
   "peerDependencies": {
     "react": "^18.2.0"
   },
