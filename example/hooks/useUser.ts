@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 const useUser = (client: SupabaseClient) => {
   const [user, setUser] = useState<User | null>(client.auth.user());
   const [loading, setIsLoading] = useState<boolean>(true);
-
   useEffect(() => {
     client.auth.onAuthStateChange((event) => {
       const user = client.auth.user();

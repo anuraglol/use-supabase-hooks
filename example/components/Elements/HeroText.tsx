@@ -24,7 +24,7 @@ const HeroText: FC = () => {
 
       <Flex
         bgColor="#07070899"
-        px="4"
+        // px="2"
         h="2.9rem"
         rounded="xl"
         justifyContent="center"

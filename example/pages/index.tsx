@@ -1,7 +1,8 @@
 import { Box, Button, Input, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import { useUser, useSelectData, useSupabase } from "use-supabase-auth";
-import { HeroText, SignIn } from "../components";
+import { useSupabase } from "use-supabase-auth";
+import { HeroText, SignIn, UserElem } from "../components";
+import { useUser } from "../hooks/useUser";
 
 const Home: NextPage = () => {
   const client = useSupabase(
@@ -10,6 +11,8 @@ const Home: NextPage = () => {
   );
 
   const { user, loading } = useUser(client);
+
+  console.log(user);
 
   return (
     <Box
