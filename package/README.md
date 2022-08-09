@@ -3,6 +3,7 @@
 </p>
 
 ## use-supabase-hooks
+
 `use-supabase-hooks` contains react hooks for common supabase functions, with type safety!
 
 Demo: https://use-supabase-hooks.vercel.app
@@ -12,7 +13,7 @@ Demo: https://use-supabase-hooks.vercel.app
 `use-supabase-hooks` is available as a npm package, you can install it using your preferred package manager.
 
 ```
-$ npm i use-supabase-hooks 
+$ npm i use-supabase-hooks
 ```
 
 ## Usage
@@ -29,6 +30,15 @@ const { user, loading, error } = useUser(client);
 
 In the above example, `client` is the Supabase client, and the hook returns the current user, loading and error state.
 
-### using the `useReadData` hook:
+### using the `useSelectData` hook:
 
-`
+```jsx
+import { useSelectData } from "use-supabase-hooks";
+
+const { data, loading, error } = useSelectData(client, "users", {
+  picks: ["name", "email"],
+  eqs: { id: 1 },
+});
+```
+
+In the above example, `client` is the Supabase client, picks are the fields to select, and eqs are the equality conditions.
