@@ -3,12 +3,13 @@ import { useSelectDataProps } from "@/types/useSelect.types";
 
 const useSelectData = async (
   client: SupabaseClient,
-  { table, picks, count, eqs }: useSelectDataProps
+  table: string,
+  { picks, count, eqs }: useSelectDataProps
 ) => {
   const { data, error } = await client
     .from(table)
     .select(`${picks}`, { count: count })
-    .eq(`${eqs[0]}`, `${eqs[1]}`);
+    .eq(`${Object.keys(eqs).map((key) => key)}`, `${Object.values(eqs)}`);
 
   return { data, error };
 };
