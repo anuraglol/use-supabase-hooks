@@ -1,7 +1,8 @@
+type eq = { [key: string | number | symbol]: any };
+
 interface Props {
-  table: string;
   data: any;
-  eqs?: [string, string];
+  eqs?: eq;
 }
 
 export type { Props };
