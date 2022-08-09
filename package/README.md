@@ -18,7 +18,7 @@ $ npm i use-supabase-hooks
 
 ## Usage
 
-Currently `use-supabase-hooks` exports a total of 8 hooks, using them is pretty straight forward. Some examples are give below:
+Currently `use-supabase-hooks` exports a total of 8 hooks, using them is pretty straight forward. The list of hooks along with their usage is below:
 
 ### using the `useUser` hook:
 
@@ -30,15 +30,79 @@ const { user, loading, error } = useUser(client);
 
 In the above example, `client` is the Supabase client, and the hook returns the current user, loading and error state.
 
+### using the `useAuth` hook
+
+Signing Up using email and password combination:
+
+```jsx
+import { useAuth } from "use-supabase-hooks";
+
+const { signIn, signUp } = useAuth(client);
+
+const { user, session, error } = await signIn({
+  email: "eddiemunson@st.com",
+  password: "dusty-bun",
+});
+```
+
+Signing In using email and password combination:
+
+```jsx
+import { useAuth } from "use-supabase-hooks";
+
+const { signIn } = useAuth(client);
+
+const { user, session, error } = await signIn({
+  email: "eddiemunson@st.com",
+  password: "dusty-bun",
+  redirectTo: "http://localhost:3000/dashboard",
+});
+```
+
+Signing In using third party providers
+
+```jsx
+import { useAuth } from "use-supabase-hooks";
+
+const { signIn } = useAuth(client);
+
+const { user, session, error } = await signIn({
+  provider: "google", // accepts any valid supabase provider
+  redirectTo: "http://localhost:3000/dashboard",
+});
+```
+
 ### using the `useSelectData` hook:
 
 ```jsx
 import { useSelectData } from "use-supabase-hooks";
 
 const { data, loading, error } = useSelectData(client, "users", {
-  picks: ["name", "email"],
-  eqs: { id: 1 },
+  picks: ["name", "email"], // columns to pick
+  eqs: { id: 1 }, // equality conditions
 });
 ```
 
-In the above example, `client` is the Supabase client, picks are the fields to select, and eqs are the equality conditions.
+### using the `useInsertData` hook:
+
+```jsx
+import { useInsertData } from "use-supabase-hooks";
+
+const { data, loading, error } = useInsertData(client, "users", data: {
+  id: 1,
+  name: "Eddie Munson",
+  email: "eddiemunson@st.com",
+});
+```
+
+### using the `useUpdateData` hook:
+
+```jsx
+import { useUpdateData } from "use-supabase-hooks";
+
+const { data, loading, error } = useUpdateData(client, "users", data: {
+  id: 1,
+  name: "Eddie the Banished",
+  email: "eddiemunson@st.com",
+}, eqs: { id: 1});
+```
