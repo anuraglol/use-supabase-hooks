@@ -1,14 +1,18 @@
-import { Props } from "@/types/useDeleteData.types";
-import { PostgrestError, SupabaseClient } from "@supabase/supabase-js";
+import { Props } from "@/types/usePropData.types";
+import { SupabaseClient } from "@supabase/supabase-js";
 import { useState } from "react";
+import { Props as ReturnProps } from "@/types/returnData.types";
 
 const useDeleteData = async (
   client: SupabaseClient,
   table: string,
   { eqs }: Props
 ) => {
-  const [res, setRes] = useState<any[]>();
-  const [error, setErr] = useState<PostgrestError>();
+  const [res, setData] = useState<ReturnProps>({
+    res: [],
+    loading: true,
+    error: null,
+  });
 
   const deleteData = async () => {
     const { data: res, error: err } = await client
@@ -16,13 +20,16 @@ const useDeleteData = async (
       .delete()
       .eq(`${Object.keys(eqs).map((key) => key)}`, `${Object.values(eqs)}`);
 
-    setRes(res);
-    setErr(err);
+    setData({
+      res: res,
+      loading: true,
+      error: err,
+    });
   };
 
   deleteData();
 
-  return { res, error };
+  return res;
 };
 
 export { useDeleteData };

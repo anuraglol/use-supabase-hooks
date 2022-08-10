@@ -1,14 +1,18 @@
-import { PostgrestError, SupabaseClient } from "@supabase/supabase-js";
+import { SupabaseClient } from "@supabase/supabase-js";
 import { useSelectDataProps } from "@/types/useSelect.types";
 import { useState } from "react";
+import { Props } from "@/types/returnData.types";
 
 const useSelectData = (
   client: SupabaseClient,
   table: string,
   { picks, count, eqs }: useSelectDataProps
 ) => {
-  const [res, setRes] = useState<any[]>();
-  const [error, setErr] = useState<PostgrestError>();
+  const [data, setData] = useState<Props>({
+    res: [],
+    loading: true,
+    error: null,
+  });
 
   const fetchData = async () => {
     const { data, error } = await client
@@ -16,13 +20,16 @@ const useSelectData = (
       .select(`${picks}`, { count: count })
       .eq(`${Object.keys(eqs).map((key) => key)}`, `${Object.values(eqs)}`);
 
-    setRes(data);
-    setErr(error);
+    setData({
+      res: data,
+      loading: false,
+      error: error,
+    });
   };
 
   fetchData();
 
-  return { res, error };
+  return data;
 };
 
 export { useSelectData };

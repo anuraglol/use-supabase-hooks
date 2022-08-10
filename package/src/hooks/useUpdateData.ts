@@ -1,14 +1,18 @@
-import { Props } from "@/types/useInsertData.types";
-import { PostgrestError, SupabaseClient } from "@supabase/supabase-js";
+import { Props } from "@/types/usePropData.types";
+import { SupabaseClient } from "@supabase/supabase-js";
 import { useState } from "react";
+import { Props as ReturnProps } from "@/types/returnData.types";
 
 const useUpdateData = (
   client: SupabaseClient,
   table: string,
   { data, eqs }: Props
 ) => {
-  const [res, setRes] = useState<any[]>();
-  const [error, setErr] = useState<PostgrestError>();
+  const [res, setData] = useState<ReturnProps>({
+    res: [],
+    loading: true,
+    error: null,
+  });
 
   const updateData = async () => {
     const { data: response, error: err } = await client
@@ -16,13 +20,16 @@ const useUpdateData = (
       .update(data)
       .eq(`${Object.keys(eqs).map((key) => key)}`, `${Object.values(eqs)}`);
 
-    setRes(response);
-    setErr(error);
+    setData({
+      res: response,
+      loading: true,
+      error: err,
+    });
   };
 
   updateData();
 
-  return { res, error };
+  return res;
 };
 
 export { useUpdateData };
