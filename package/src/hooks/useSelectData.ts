@@ -1,8 +1,4 @@
-import {
-  PostgrestError,
-  PostgrestResponse,
-  SupabaseClient,
-} from "@supabase/supabase-js";
+import { PostgrestError, SupabaseClient } from "@supabase/supabase-js";
 import { useSelectDataProps } from "@/types/useSelect.types";
 import { useState } from "react";
 
