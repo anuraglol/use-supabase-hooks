@@ -1,6 +1,6 @@
 {
-  "name": "use-supabase-auth",
-  "version": "2.0.0",
+  "name": "use-supabase-hooks",
+  "version": "0.0.1p",
   "repository": "https://github.com/kr-anurag/use-supabase-auth.git",
   "author": "Anurag <kr.anurag24@gmail.com>",
   "license": "MIT",
