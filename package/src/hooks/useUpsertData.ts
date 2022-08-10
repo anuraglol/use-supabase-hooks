@@ -6,7 +6,7 @@ import { Props as ReturnProps } from "@/types/returnData.types";
 const useUpsertData = async (
   client: SupabaseClient,
   table: string,
-  { data, eqs }: Props
+  { data }: Props
 ) => {
   const [res, setData] = useState<ReturnProps>({
     res: [],
@@ -17,8 +17,7 @@ const useUpsertData = async (
   const upsertData = async () => {
     const { data: response, error: err } = await client
       .from(table)
-      .upsert(data)
-      .eq(`${Object.keys(eqs).map((key) => key)}`, `${Object.values(eqs)}`);
+      .upsert(data);
 
     setData({
       res: response,

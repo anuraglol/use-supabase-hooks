@@ -18,7 +18,7 @@ const useUpdateData = (
     const { data: response, error: err } = await client
       .from(table)
       .update(data)
-      .eq(`${Object.keys(eqs).map((key) => key)}`, `${Object.values(eqs)}`);
+      .eq(eqs[0], eqs[1]);
 
     setData({
       res: response,

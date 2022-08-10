@@ -3041,6 +3041,13 @@ use-supabase-auth@^1.2.3:
   dependencies:
     "@supabase/supabase-js" "^1.35.5"
 
+use-supabase-hooks@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/use-supabase-hooks/-/use-supabase-hooks-0.0.1.tgz#5890657982abc4d9cfcf81aa584eeeb613b73571"
+  integrity sha512-NgskugfHFAOVDq4S4dK3a9gvvTQ0R6HwSQfY2auZ5FccLRWcog7s9mepy+4ZBYSbVCuQKKTqJjkLqHQfAMWDiA==
+  dependencies:
+    "@supabase/supabase-js" "^1.35.5"
+
 use-sync-external-store@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"

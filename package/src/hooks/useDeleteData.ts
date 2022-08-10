@@ -18,7 +18,7 @@ const useDeleteData = async (
     const { data: res, error: err } = await client
       .from(table)
       .delete()
-      .eq(`${Object.keys(eqs).map((key) => key)}`, `${Object.values(eqs)}`);
+      .eq(eqs[0], eqs[1]);
 
     setData({
       res: res,
