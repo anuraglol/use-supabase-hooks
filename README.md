@@ -79,7 +79,7 @@ import { useSelectData } from "use-supabase-hooks";
 
 const { data, loading, error } = useSelectData(client, "users", {
   picks: ["name", "email"], // columns to pick
-  eqs: { id: 1 }, // equality conditions
+  eqs: ["id", 1], // equality conditions
 });
 ```
 
@@ -104,5 +104,27 @@ const { data, loading, error } = useUpdateData(client, "users", data: {
   id: 1,
   name: "Eddie the Banished",
   email: "eddiemunson@st.com",
-}, eqs: { id: 1});
+}, eqs: ["id", 1]);
 ```
+
+### using the `useUpsertData` hook:
+
+```jsx
+import { useUpsertData } from "use-supabase-hooks";
+
+const { data, loading, error } = useUpsertData(client, "users", data: {
+  id: 1,
+  name: "Steve Harrington",
+  email: "steve@st.com",
+});
+```
+
+### using the `useDeleteData` hook:
+
+```jsx
+import { useDeleteData } from "use-supabase-hooks";
+
+const { data, loading, error } = useDeleteData(client, "users", eqs: ["id", 1]);
+```
+
+And thats a wrap for this one! Hope you find this useful!

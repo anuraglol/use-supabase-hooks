@@ -1,20 +1,8 @@
-import { Box, Button, Input, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import { useEffect } from "react";
-import { useSupabase, useUser } from "use-supabase-auth";
-import { HeroText, SignIn, UserElem } from "../components";
-import { useSelectData } from "use-supabase-hooks";
+import { HeroText } from "../components";
 
 const Home: NextPage = () => {
-  const client = useSupabase(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_PK!
-  );
-
-  const { user } = useUser(client);
-
-  console.log(user);
-
   return (
     <Box
       minH="100vh"
@@ -30,8 +18,6 @@ const Home: NextPage = () => {
       fontFamily="GT"
     >
       <HeroText />
-
-      <SignIn />
     </Box>
   );
 };
