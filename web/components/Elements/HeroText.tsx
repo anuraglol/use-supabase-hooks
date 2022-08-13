@@ -8,7 +8,13 @@ const HeroText: FC = () => {
   const { onCopy, hasCopied } = useClipboard("npm i use-supabase-hooks");
 
   return (
-    <Flex direction="column" gap="2" textAlign="center" textColor="white">
+    <Flex
+      direction="column"
+      gap="2"
+      textAlign="center"
+      textColor="white"
+      mt="12"
+    >
       <Flex fontWeight="900" fontSize="4xl" gap="4" alignItems="center">
         <Image
           src="/assets/supabase-logo.svg"
@@ -24,7 +30,6 @@ const HeroText: FC = () => {
 
       <Flex
         bgColor="#07070899"
-        // px="2"
         h="2.9rem"
         rounded="xl"
         justifyContent="center"

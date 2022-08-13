@@ -1,6 +1,12 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import { HeroText } from "../components";
+import {
+  HeroText,
+  MainCodeBlock,
+  ImportUseUser,
+  ImportUseAuth,
+  Footer,
+} from "../components";
 
 const Home: NextPage = () => {
   return (
@@ -10,14 +16,20 @@ const Home: NextPage = () => {
       bgColor="#040108"
       display="flex"
       flexDirection="column"
-      justifyContent="center"
       alignItems="center"
-      gap="16"
       bgImage="url(/assets/bg.svg)"
       bgSize="cover"
       fontFamily="GT"
     >
       <HeroText />
+      <Flex w="full" justifyContent="space-between" my="8" px="10">
+        <ImportUseUser />
+
+        <ImportUseAuth />
+      </Flex>
+      <MainCodeBlock />
+
+      <Footer />
     </Box>
   );
 };
