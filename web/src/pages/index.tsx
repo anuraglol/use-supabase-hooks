@@ -6,7 +6,7 @@ import {
   ImportUseUser,
   ImportUseAuth,
   Footer,
-} from "../components";
+} from "@/components";
 
 const Home: NextPage = () => {
   return (
