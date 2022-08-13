@@ -29,7 +29,7 @@ const HeroText: FC = () => {
       </Text>
 
       <Flex
-        bgColor="#07070899"
+        bgColor="accent.glass"
         h="2.9rem"
         rounded="xl"
         justifyContent="center"
@@ -37,10 +37,11 @@ const HeroText: FC = () => {
         fontSize="lg"
         fontFamily="fira"
         gap="4"
-        border="2px solid #700BF04F"
+        border="2px solid"
+        borderColor="accent.border"
         mt="6"
       >
-        <Flex textColor="#AB71F6">
+        <Flex textColor="accent.purple">
           npm&nbsp; <Text color="white">i use-supabase-hooks</Text>
         </Flex>
 

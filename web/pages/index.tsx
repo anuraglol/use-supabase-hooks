@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     <Box
       minH="100vh"
       w="full"
-      bgColor="#040108"
+      bgColor="accent.black"
       display="flex"
       flexDirection="column"
       alignItems="center"

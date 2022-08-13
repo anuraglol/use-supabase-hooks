@@ -3,11 +3,12 @@ import { Flex, Text } from "@chakra-ui/react";
 const MainCodeBlock = () => {
   return (
     <Flex
-      bgColor="#07070899"
+      bgColor="accent.glass"
       rounded="lg"
       fontSize="md"
       fontFamily="fira"
-      border="2px solid #700BF04F"
+      border="2px solid"
+      borderColor="accent.border"
       mt="6"
       textColor="white"
       p="4"

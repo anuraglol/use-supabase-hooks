@@ -20,14 +20,15 @@ const ImportCode: FC = () => {
       }}
     >
       <Flex
-        bgColor="#07070899"
+        bgColor="accent.glass"
         rounded="xl"
         justifyContent="center"
         alignItems="center"
         fontSize="md"
         fontFamily="fira"
         gap="3"
-        border="2px solid #700BF04F"
+        border="2px solid"
+        borderColor="accent.border"
         mt="6"
         textColor="white"
         px="6"
