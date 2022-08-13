@@ -23,7 +23,7 @@ const MainCodeBlock = () => {
       <Flex gap="2" mt="4">
         <Text textColor="code.purple">const</Text>
         <Text textColor="code.pink">{` { data, loading, error } `}</Text>
-        <Text textColor="code.purple">{`=`}</Text>
+        <Text textColor="code.white">{`=`}</Text>
         <Text textColor="code.pink">{`useSelectData(client,`}</Text>
       </Flex>
 
