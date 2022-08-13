@@ -1,6 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { FC } from "react";
-import { ArrowIcon } from "../Icons";
+import { ArrowIcon, HeartIcon } from "../Icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -74,9 +74,7 @@ const Footer: FC = () => {
             rel="noopener"
           >
             Made with
-            <Text as="span" color="code.purple" fontWeight="medium">
-              💜
-            </Text>
+            <HeartIcon />
             by Anurag
             <ArrowIcon />
           </Flex>
