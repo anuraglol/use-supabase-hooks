@@ -1,6 +1,6 @@
 import { Props } from "@/types/usePropData.types";
 import { SupabaseClient } from "@supabase/supabase-js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Props as ReturnProps } from "@/types/returnData.types";
 
 const useDeleteData = async (
@@ -13,21 +13,22 @@ const useDeleteData = async (
     loading: true,
     error: null,
   });
+  useEffect(() => {
+    const deleteData = async () => {
+      const { data: res, error: err } = await client
+        .from(table)
+        .delete()
+        .eq(eqs[0], eqs[1]);
 
-  const deleteData = async () => {
-    const { data: res, error: err } = await client
-      .from(table)
-      .delete()
-      .eq(eqs[0], eqs[1]);
+      setData({
+        res: res,
+        loading: true,
+        error: err,
+      });
+    };
 
-    setData({
-      res: res,
-      loading: true,
-      error: err,
-    });
-  };
-
-  deleteData();
+    deleteData();
+  }, [client, table, eqs]);
 
   return res;
 };

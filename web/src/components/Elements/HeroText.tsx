@@ -1,4 +1,4 @@
-import { Box, Flex, Text, useClipboard } from "@chakra-ui/react";
+import { Box, Flex, Text, useClipboard, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
 import { FC } from "react";
 import { toast } from "react-hot-toast";
@@ -6,6 +6,7 @@ import { FiCopy } from "react-icons/fi";
 
 const HeroText: FC = () => {
   const { onCopy, hasCopied } = useClipboard("npm i use-supabase-hooks");
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <Flex
@@ -15,11 +16,16 @@ const HeroText: FC = () => {
       textColor="white"
       mt="12"
     >
-      <Flex fontWeight="900" fontSize="4xl" gap="4" alignItems="center">
+      <Flex
+        fontWeight="900"
+        fontSize={{ base: "3xl", md: "4xl" }}
+        gap={{ base: "2", md: "4" }}
+        alignItems="center"
+      >
         <Image
           src="/assets/supabase-logo.svg"
           alt="supabase logo"
-          width="40"
+          width={isMobile[0] ? "28" : "40"}
           height="52"
         />
         use-supabase-hooks

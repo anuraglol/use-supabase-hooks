@@ -6,7 +6,7 @@
 
 `use-supabase-hooks` contains react hooks for common supabase functions, with type safety!
 
-Demo: https://use-supabase-hooks.vercel.app
+Website: https://use-supabase-hooks.vercel.app
 
 ## Installation
 

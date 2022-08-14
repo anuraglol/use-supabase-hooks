@@ -1,6 +1,6 @@
 import { Props } from "@/types/usePropData.types";
 import { SupabaseClient } from "@supabase/supabase-js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Props as ReturnProps } from "@/types/returnData.types";
 
 const useInsertData = (
@@ -13,20 +13,21 @@ const useInsertData = (
     loading: true,
     error: null,
   });
+  useEffect(() => {
+    const insertData = async () => {
+      const { data: response, error: err } = await client
+        .from(table)
+        .insert(data);
 
-  const insertData = async () => {
-    const { data: response, error: err } = await client
-      .from(table)
-      .insert(data);
+      setData({
+        res: response,
+        loading: false,
+        error: err,
+      });
+    };
 
-    setData({
-      res: response,
-      loading: false,
-      error: err,
-    });
-  };
-
-  insertData();
+    insertData();
+  }, [client, table, data]);
 
   return res;
 };

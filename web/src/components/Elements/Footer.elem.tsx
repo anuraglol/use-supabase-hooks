@@ -16,6 +16,8 @@ const Footer: FC = () => {
       pos="fixed"
       bottom="0"
       mb="8"
+      direction={{ base: "column", md: "row" }}
+      visibility={{ base: "hidden", md: "visible" }}
     >
       <motion.div
         whileHover={{
