@@ -17,7 +17,10 @@ const Home: NextPage = () => {
       display="flex"
       flexDirection="column"
       alignItems="center"
-      bgImage="url(/assets/bg.svg)"
+      bgImage={{
+        base: "url(/assets/mobile-bg.svg)",
+        md: "url(/assets/bg.svg)",
+      }}
       bgSize="cover"
       fontFamily="GT"
     >

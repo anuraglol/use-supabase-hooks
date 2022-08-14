@@ -1,6 +1,6 @@
 import { SupabaseClient } from "@supabase/supabase-js";
 import { useSelectDataProps } from "@/types/useSelect.types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Props } from "@/types/returnData.types";
 
 const useSelectData = (
@@ -14,20 +14,22 @@ const useSelectData = (
     error: null,
   });
 
-  const fetchData = async () => {
-    const { data, error } = await client
-      .from(table)
-      .select(`${picks}`, { count: count })
-      .eq(`${Object.keys(eqs).map((key) => key)}`, `${Object.values(eqs)}`);
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await client
+        .from(table)
+        .select(`${picks}`, { count: count })
+        .eq(`${Object.keys(eqs).map((key) => key)}`, `${Object.values(eqs)}`);
 
-    setData({
-      res: data,
-      loading: false,
-      error: error,
-    });
-  };
+      setData({
+        res: data,
+        loading: false,
+        error: error,
+      });
+    };
 
-  fetchData();
+    fetchData();
+  }, [client, table, picks, count, eqs]);
 
   return data;
 };

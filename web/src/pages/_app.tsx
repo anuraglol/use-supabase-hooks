@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import "@/styles/fonts.css";
-import { theme } from "@/themes/theme.chakra";
+import { theme } from "@/theme/theme.chakra";
 import "@fontsource/fira-code/500.css";
 import { Toaster } from "react-hot-toast";
 import { NextSeo } from "next-seo";
