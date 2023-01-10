@@ -2,7 +2,7 @@
   <img src="https://user-images.githubusercontent.com/77309809/183580340-29c69e0a-bb03-4f35-afd5-41846b947976.svg" />
 </p>
 
-⚠️ Usage of this package isn't advised considering the new auth helpers (https://supabase.com/docs/guides/auth/auth-helpers) provided by supabase.
+> ⚠️ Usage of this package isn't advised considering the new auth helpers (https://supabase.com/docs/guides/auth/auth-helpers) provided by supabase.
 
 ## use-supabase-hooks
 
